@@ -1,16 +1,43 @@
 @use './reset.css';
 @use './vars.scss';
 
-.app {
-  width: 800px;
-  margin: 1em auto;
-  text-align: center;
+body{
+  min-height: 100vh;
 }
 
-.app img {
-  max-width: 550px;
+
+.memory_game{
+  max-width: 700px;
+  height:700px;
+  display:flex;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
-h1{
-  font-size:3rem;
+.memory_card{
+  width: calc(25% - 5px);
+height:33.333%;
+border-radius:4%;
+overflow: hidden;
+position:relative;
+margin:2px;
+transform: scale(1);
+&:active{
+  transform: scale(.97);
+  transition: transform 200ms
+}
+&:hover{
+cursor: pointer;
+}
+}
+
+.flipped{
+  transform: rotateY(180deg);
+}
+
+.front_face, .back_face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding:1px;
 }
