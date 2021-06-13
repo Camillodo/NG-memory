@@ -1,6 +1,9 @@
 @use './reset.css';
 @use './vars.scss';
 
+body{
+  background-color: rgb(152, 153, 224);
+}
 
 .memory-game {
   width: 600px;
