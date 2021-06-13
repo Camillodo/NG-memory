@@ -1,6 +1,6 @@
 @use './reset.css';
 @use './vars.scss';
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 body{
   background-color: rgb(152, 153, 224);
 }
@@ -46,4 +46,17 @@ body{
 
 .front-face {
   transform: rotateY(180deg);
+}
+.winning-message{
+  font: 1.85rem 'Rubik Mono One';
+  color: #FFF;
+  text-align: center;
+  background-color: rgb(20, 9, 126);
+  display: none;
+  &--visible{
+    display: block;
+  }
+  .play:hover{
+    cursor: pointer;
+  }
 }

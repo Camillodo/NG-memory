@@ -2,12 +2,17 @@
 // We first target all the memory cards
 const cards = document.querySelectorAll('.memory-card');
 
+const allFlipCards = document.getElementsByClassName('flip')
 //By default a card has not flipped
 let hasFlippedCard = false;
 // We use lock board to ensure that the user is not going to flip another set of cards during the check for match
 let lockBoard = false;
 // We create two variables the first card and the second
 let firstCard, secondCard;
+// the winning message div
+let winningMessage=document.querySelector('.winning-message');
+// the replay button
+let playButton=document.querySelector('.play');
 
 function flipCard() {
   //if lockBoard is on  we return
@@ -25,6 +30,10 @@ function flipCard() {
   // if we are here the trigger is the second card so we check for match
   secondCard = this;
   checkForMatch();
+  //if all cards are unflip then we congratulates the player :)
+  if (allFlipCards.length==16){
+    winningMessage.classList.add('winning-message--visible')
+  }
 }
 
 function checkForMatch() {
@@ -33,7 +42,7 @@ function checkForMatch() {
   // if so we use disableCards to remove the events and lock the unflipCards
   //if not we continue
   isMatch ? disableCards() : unflipCards();
-}
+  }
 
 
 // if it is a match disableCards is called
@@ -75,3 +84,8 @@ function resetBoard() {
 
 // a forEach to add events listeners to each cards
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+
+playButton.addEventListener('click',()=>{
+  document.location.reload();
+})
