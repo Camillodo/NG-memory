@@ -6,12 +6,16 @@ body{
 }
 
 .memory-game {
-  width: 600px;
+  max-width: 600px;
   height: 600px;
   margin: 5% auto;
   display: flex;
   flex-wrap: wrap;
   perspective: 1000px;
+  @media screen and (max-width: 680px) {
+    max-width: 400px;
+    height: 400px;
+  }
 }
 
 .memory-card {
@@ -22,6 +26,10 @@ body{
   transform: scale(1);
   transform-style: preserve-3d;
   transition: transform 500ms;
+  @media screen and (max-width:400px) {
+    width: calc(50% - 10px);
+    height: calc(60% - 10px);
+  }
   &:active{
     transform: scale(.97);
     transition: transform 200ms;
